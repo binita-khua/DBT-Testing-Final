@@ -1,6 +1,6 @@
 export class MigrateDatabase1743197469428 {
     async up(queryRunner) {
-        await queryRunner.query(`ALTER TABLE "voyage_detail" DROP CONSTRAINT IF EXISTS "FK_ad1576918ad6cd6d916e1e5e64c"`);
+        // Dropping existing tables if they exist
         await queryRunner.query(`DROP TABLE IF EXISTS "service_detail"`);
         await queryRunner.query(`DROP TABLE IF EXISTS "driver_profile" CASCADE`);
         await queryRunner.query(`DROP TABLE IF EXISTS "voyage_detail"`);
@@ -8,9 +8,10 @@ export class MigrateDatabase1743197469428 {
         await queryRunner.query(`DROP TABLE IF EXISTS "customer_list"`);
         await queryRunner.query(`DROP TABLE IF EXISTS "employee_list"`);
         await queryRunner.query(`DROP TABLE IF EXISTS "truck_list"`);
+        // Creating new tables with corrections for PostgreSQL
         await queryRunner.query(`
             CREATE TABLE IF NOT EXISTS "truck_list" (
-                "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+                "id" SERIAL PRIMARY KEY,
                 "brand" VARCHAR(255) NOT NULL DEFAULT 'Unknown',
                 "load" INT NOT NULL DEFAULT 0,
                 "capacity" INT NOT NULL DEFAULT 0,
@@ -20,7 +21,7 @@ export class MigrateDatabase1743197469428 {
         `);
         await queryRunner.query(`
             CREATE TABLE IF NOT EXISTS "employee_list" (
-                "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+                "id" SERIAL PRIMARY KEY,
                 "name" VARCHAR(255) NOT NULL DEFAULT 'Unknown',
                 "surname" VARCHAR(255) NOT NULL DEFAULT 'Unknown',
                 "seniority" INT NOT NULL DEFAULT 0,
@@ -29,7 +30,7 @@ export class MigrateDatabase1743197469428 {
         `);
         await queryRunner.query(`
             CREATE TABLE IF NOT EXISTS "customer_list" (
-                "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+                "id" SERIAL PRIMARY KEY,
                 "name" VARCHAR(255) NOT NULL DEFAULT 'Unknown',
                 "address" VARCHAR(255) NOT NULL DEFAULT 'Unknown',
                 "phoneNumber1" VARCHAR(50) DEFAULT 'Unknown',
@@ -38,7 +39,7 @@ export class MigrateDatabase1743197469428 {
         `);
         await queryRunner.query(`
             CREATE TABLE IF NOT EXISTS "freight_detail" (
-                "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+                "id" SERIAL PRIMARY KEY,
                 "customerID" INT,
                 "weight" INT NOT NULL DEFAULT 0,
                 "value" DECIMAL NOT NULL DEFAULT 0.0,
@@ -48,20 +49,20 @@ export class MigrateDatabase1743197469428 {
         `);
         await queryRunner.query(`
             CREATE TABLE IF NOT EXISTS "voyage_detail" (
-                "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+                "id" SERIAL PRIMARY KEY,
                 "route" VARCHAR(255) NOT NULL DEFAULT 'Unknown',
                 "truckID" INT
             );
         `);
         await queryRunner.query(`
             CREATE TABLE IF NOT EXISTS "service_detail" (
-                "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+                "id" SERIAL PRIMARY KEY,
                 "truckID" INT NOT NULL,
                 "mechanicID" INT NOT NULL,
                 "estimatedTimeForRepair" INT NOT NULL
-                
             );
         `);
+        // Insert example data into the newly created tables
         await queryRunner.query(`
             INSERT INTO "truck_list" ("brand", "load", "capacity", "year", "numberOfRepairs") VALUES
             ('Parker', 10000, 20000, 2015, 2),
@@ -100,6 +101,7 @@ export class MigrateDatabase1743197469428 {
         `);
     }
     async down(queryRunner) {
+        // Clean up all the tables
         await queryRunner.query(`DROP TABLE IF EXISTS "service_detail"`);
         await queryRunner.query(`DROP TABLE IF EXISTS "driver_profile"`);
         await queryRunner.query(`DROP TABLE IF EXISTS "voyage_detail"`);
