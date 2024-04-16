@@ -1,3 +1,7 @@
+This project is hosted on GitHub. You can view and download the source code from the following link:
+
+[GitHub Repository: DBT-Testing-Final](https://github.com/binita-khua/DBT-Testing-Final.git)
+
 ### Configuration Requirements
 Before staring, ensure to modify the database configurations in the following files to match your local or production environment settings:
 
@@ -15,7 +19,7 @@ These files should be updated with your specific PostgreSQL settings:
   password: "password", // Change to your PostgreSQL password
   database: "postgres"  // Change to your PostgreSQL database name
 }
-
+```
 
 1. Load dependencies:
    ```
