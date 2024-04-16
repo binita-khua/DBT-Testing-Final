@@ -62,6 +62,26 @@ export class MigrateDatabase1743197469428 {
                 "estimatedTimeForRepair" INT NOT NULL
             );
         `);
+        await queryRunner.query(`
+            CREATE TABLE IF NOT EXISTS "DriverProfile" (
+                "id" SERIAL PRIMARY KEY,
+                "name" VARCHAR(255) NOT NULL,
+                "surname" VARCHAR(255) NOT NULL,
+                "seniority" INT NOT NULL,
+                "role" VARCHAR(50) NOT NULL,
+                "category" VARCHAR(50) NOT NULL
+            );
+        `);
+        await queryRunner.query(`
+            CREATE TABLE IF NOT EXISTS "MechanicDirectory" (
+                "id" SERIAL PRIMARY KEY,
+                "name" VARCHAR(255) NOT NULL,
+                "surname" VARCHAR(255) NOT NULL,
+                "seniority" INT NOT NULL,
+                "role" VARCHAR(50) NOT NULL,
+                "brandSpecialization" VARCHAR(255) NOT NULL
+            );
+        `);
         // Insert example data into the newly created tables
         await queryRunner.query(`
             INSERT INTO "TruckList" ("brand", "load", "capacity", "year", "numberOfRepairs") VALUES
@@ -98,6 +118,18 @@ export class MigrateDatabase1743197469428 {
             (1, 2, 5),
             (2, 2, 3),
             (3, 2, 4);
+        `);
+        await queryRunner.query(`
+            INSERT INTO "DriverProfile" ("name", "surname", "seniority", "role", "category") VALUES
+            ('John', 'Doe', 5, 'Driver', 'Class A'),
+            ('Jane', 'Doe', 3, 'Driver', 'Class B'),
+            ('Jim', 'Beam', 7, 'Driver', 'Class C');
+        `);
+        await queryRunner.query(`
+            INSERT INTO "MechanicDirectory" ("name", "surname", "seniority", "role", "brandSpecialization") VALUES
+            ('Bob', 'Builder', 4, 'Mechanic', 'Caterpillar'),
+            ('Sam', 'Fix', 6, 'Mechanic', 'Komatsu'),
+            ('Alice', 'Wrench', 2, 'Mechanic', 'Volvo');
         `);
     }
     async down(queryRunner) {

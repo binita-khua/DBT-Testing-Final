@@ -1,3 +1,21 @@
+### Configuration Requirements
+Before staring, ensure to modify the database configurations in the following files to match your local or production environment settings:
+
+- `ormconfig.ts`
+- `docker-compose.yml`
+- `src/data-source.ts`
+
+These files should be updated with your specific PostgreSQL settings:
+```typescript
+{
+  type: "postgres",
+  host: "localhost",
+  port: 5432,
+  username: "postgres", // Change to your PostgreSQL username
+  password: "password", // Change to your PostgreSQL password
+  database: "postgres"  // Change to your PostgreSQL database name
+}
+
 
 1. Load dependencies:
    ```
