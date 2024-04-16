@@ -7,33 +7,41 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, ManyToMany, JoinTable } from "typeorm";
 import { TruckList } from "./TruckList.js";
-import { MechanicDirectory } from "./MechanicDirectory.js";
-let ServiceDetail = class ServiceDetail {
+import { DriverProfile } from "./DriverProfile.js";
+import { FreightDetail } from "./FreightDetail.js";
+let VoyageDetail = class VoyageDetail {
     id;
+    route;
     truckList;
-    mechanicDirectory;
-    estimatedTimeForRepair;
+    driverProfiles;
+    freightDetails;
 };
 __decorate([
     PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
-], ServiceDetail.prototype, "id", void 0);
+], VoyageDetail.prototype, "id", void 0);
+__decorate([
+    Column(),
+    __metadata("design:type", String)
+], VoyageDetail.prototype, "route", void 0);
 __decorate([
     ManyToOne(() => TruckList, truckList => truckList.id),
     __metadata("design:type", TruckList)
-], ServiceDetail.prototype, "truckList", void 0);
+], VoyageDetail.prototype, "truckList", void 0);
 __decorate([
-    ManyToOne(() => MechanicDirectory, mechanicDirectory => mechanicDirectory.id),
-    __metadata("design:type", MechanicDirectory)
-], ServiceDetail.prototype, "mechanicDirectory", void 0);
+    ManyToMany(() => DriverProfile, driverProfile => driverProfile.id),
+    JoinTable(),
+    __metadata("design:type", Array)
+], VoyageDetail.prototype, "driverProfiles", void 0);
 __decorate([
-    Column(),
-    __metadata("design:type", Number)
-], ServiceDetail.prototype, "estimatedTimeForRepair", void 0);
-ServiceDetail = __decorate([
-    Entity('ServiceDetail')
-], ServiceDetail);
-export { ServiceDetail };
-//# sourceMappingURL=ServiceDetail.js.map
+    ManyToMany(() => FreightDetail, freightDetail => freightDetail.id),
+    JoinTable(),
+    __metadata("design:type", Array)
+], VoyageDetail.prototype, "freightDetails", void 0);
+VoyageDetail = __decorate([
+    Entity('VoyageDetail')
+], VoyageDetail);
+export { VoyageDetail };
+//# sourceMappingURL=VoyageDetail.js.map

@@ -17,7 +17,7 @@ __decorate([
     __metadata("design:type", String)
 ], DriverProfile.prototype, "category", void 0);
 DriverProfile = __decorate([
-    Entity()
+    Entity('DriverProfile')
 ], DriverProfile);
 export { DriverProfile };
 //# sourceMappingURL=DriverProfile.js.map

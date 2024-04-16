@@ -36,7 +36,7 @@ __decorate([
     __metadata("design:type", String)
 ], CustomerList.prototype, "phoneNumber2", void 0);
 CustomerList = __decorate([
-    Entity()
+    Entity('CustomerList')
 ], CustomerList);
 export { CustomerList };
 //# sourceMappingURL=CustomerList.js.map

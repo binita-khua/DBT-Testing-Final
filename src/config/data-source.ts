@@ -3,7 +3,7 @@ import { TruckList } from "../entity/TruckList";
 import { EmployeeList } from "../entity/EmployeeList";
 import { CustomerList } from "../entity/CustomerList";
 import { FreightDetail } from "../entity/FreightDetail";
-import { VoyageDetail } from "../entity/Trips";
+import { VoyageDetail } from "../entity/VoyageDetail";
 import { ServiceDetail } from "../entity/ServiceDetail";
 import { DriverProfile } from "../entity/DriverProfile";
 import { MechanicDirectory } from "../entity/MechanicDirectory";

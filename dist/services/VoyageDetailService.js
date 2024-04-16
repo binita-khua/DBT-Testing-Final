@@ -1,5 +1,5 @@
 import { AppDataSource } from '../config/data-source.js';
-import { VoyageDetail } from '../entity/Trips.js';
+import { VoyageDetail } from '../entity/VoyageDetail.js';
 export class VoyageDetailService {
     voyageDetailRepo = AppDataSource.getRepository(VoyageDetail);
     async findAll() {

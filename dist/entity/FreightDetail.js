@@ -42,7 +42,7 @@ __decorate([
     __metadata("design:type", String)
 ], FreightDetail.prototype, "destination", void 0);
 FreightDetail = __decorate([
-    Entity()
+    Entity('FreightDetail')
 ], FreightDetail);
 export { FreightDetail };
 //# sourceMappingURL=FreightDetail.js.map

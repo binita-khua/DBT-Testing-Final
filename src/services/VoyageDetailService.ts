@@ -1,5 +1,5 @@
 import { AppDataSource } from '../config/data-source';
-import { VoyageDetail } from '../entity/Trips';
+import { VoyageDetail } from '../entity/VoyageDetail';
 
 export class VoyageDetailService {
     private voyageDetailRepo = AppDataSource.getRepository(VoyageDetail);

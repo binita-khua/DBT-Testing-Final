@@ -3,7 +3,7 @@ import { TruckList } from "../entity/TruckList.js";
 import { EmployeeList } from "../entity/EmployeeList.js";
 import { CustomerList } from "../entity/CustomerList.js";
 import { FreightDetail } from "../entity/FreightDetail.js";
-import { VoyageDetail } from "../entity/Trips.js";
+import { VoyageDetail } from "../entity/VoyageDetail.js";
 import { ServiceDetail } from "../entity/ServiceDetail.js";
 import { DriverProfile } from "../entity/DriverProfile.js";
 import { MechanicDirectory } from "../entity/MechanicDirectory.js";

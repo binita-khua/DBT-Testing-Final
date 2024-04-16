@@ -36,7 +36,7 @@ __decorate([
     __metadata("design:type", String)
 ], EmployeeList.prototype, "role", void 0);
 EmployeeList = __decorate([
-    Entity()
+    Entity('EmployeeList')
 ], EmployeeList);
 export { EmployeeList };
 //# sourceMappingURL=EmployeeList.js.map

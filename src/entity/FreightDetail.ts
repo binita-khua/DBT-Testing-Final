@@ -1,7 +1,7 @@
 import {Entity, PrimaryGeneratedColumn, Column, ManyToOne} from "typeorm";
 import {CustomerList} from "./CustomerList";
 
-@Entity()
+@Entity('FreightDetail')
 export class FreightDetail {
     @PrimaryGeneratedColumn()
     id!: number;

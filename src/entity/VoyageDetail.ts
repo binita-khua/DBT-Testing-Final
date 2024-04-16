@@ -3,7 +3,7 @@ import {TruckList} from "./TruckList";
 import {DriverProfile} from "./DriverProfile";
 import {FreightDetail} from "./FreightDetail";
 
-@Entity()
+@Entity('VoyageDetail')
 export class VoyageDetail {
     @PrimaryGeneratedColumn()
     id!: number;

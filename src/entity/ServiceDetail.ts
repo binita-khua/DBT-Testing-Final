@@ -2,7 +2,7 @@ import {Entity, PrimaryGeneratedColumn, Column, ManyToOne} from "typeorm";
 import {TruckList} from "./TruckList";
 import {MechanicDirectory} from "./MechanicDirectory";
 
-@Entity()
+@Entity('ServiceDetail')
 export class ServiceDetail {
     @PrimaryGeneratedColumn()
     id!: number;

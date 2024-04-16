@@ -1,7 +1,7 @@
 import request from 'supertest';
 import { app } from '../../app.js';
 import { AppDataSource } from '../../config/data-source.js';
-import { VoyageDetail } from '../../entity/Trips.js';
+import { VoyageDetail } from '../../entity/VoyageDetail.js';
 import { TruckList } from '../../entity/TruckList.js';
 import { DriverProfile } from '../../entity/DriverProfile.js';
 import { FreightDetail } from '../../entity/FreightDetail.js';

@@ -1,7 +1,7 @@
 import request from 'supertest';
 import { app } from '../../app';
 import { AppDataSource } from '../../config/data-source';
-import { VoyageDetail } from '../../entity/Trips';
+import { VoyageDetail } from '../../entity/VoyageDetail';
 import { TruckList } from '../../entity/TruckList';
 import { DriverProfile } from '../../entity/DriverProfile';
 import { FreightDetail } from '../../entity/FreightDetail';

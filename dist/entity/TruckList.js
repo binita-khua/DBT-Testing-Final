@@ -41,7 +41,7 @@ __decorate([
     __metadata("design:type", Number)
 ], TruckList.prototype, "numberOfRepairs", void 0);
 TruckList = __decorate([
-    Entity()
+    Entity('TruckList')
 ], TruckList);
 export { TruckList };
 //# sourceMappingURL=TruckList.js.map

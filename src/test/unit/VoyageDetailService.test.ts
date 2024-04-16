@@ -1,5 +1,5 @@
 import { VoyageDetailService } from '../../services/VoyageDetailService';
-import { VoyageDetail } from '../../entity/Trips';
+import { VoyageDetail } from '../../entity/VoyageDetail';
 import { AppDataSource } from '../../config/data-source';
 import { DriverProfile } from '../../entity/DriverProfile';
 import { FreightDetail } from '../../entity/FreightDetail';

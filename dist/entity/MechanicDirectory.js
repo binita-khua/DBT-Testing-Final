@@ -17,7 +17,7 @@ __decorate([
     __metadata("design:type", String)
 ], MechanicDirectory.prototype, "brandSpecialization", void 0);
 MechanicDirectory = __decorate([
-    Entity()
+    Entity('MechanicDirectory')
 ], MechanicDirectory);
 export { MechanicDirectory };
 //# sourceMappingURL=MechanicDirectory.js.map
