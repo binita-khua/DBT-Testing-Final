@@ -15,7 +15,7 @@ These files should be updated with your specific PostgreSQL settings:
   password: "password", // Change to your PostgreSQL password
   database: "postgres"  // Change to your PostgreSQL database name
 }
-
+```
 
 1. Load dependencies:
    ```
